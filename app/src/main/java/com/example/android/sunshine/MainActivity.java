@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +60,7 @@ public class MainActivity extends ActionBarActivity {
     public static class PlaceholderFragment extends Fragment {
 
        ArrayAdapter<String> mForecastAdapter;
+        private ListView mListView;
 
         public PlaceholderFragment() {
         }
@@ -67,20 +69,29 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
+
             String[] dataFake = {
            "Senin,mendung - 23",
            "Selasa,hujan - 23",
             "rabu,cerah - 23",
            "kamis,mendung - 23"};
 
+
             List<String> weekFo = new ArrayList<String>(Arrays.asList(dataFake));
 
-            mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview);
+            mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_t);
+            //setListAdapter(mForecastAdapter);
+
 
 
 
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            mListView = (ListView) rootView.findViewById(R.id.listView);
+            mListView.setAdapter(mForecastAdapter);
             return rootView;
         }
+
+
     }
 }
