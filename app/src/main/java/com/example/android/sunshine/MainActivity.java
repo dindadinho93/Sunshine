@@ -79,7 +79,7 @@ public class MainActivity extends ActionBarActivity {
 
             List<String> weekFo = new ArrayList<String>(Arrays.asList(dataFake));
 
-            mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_t);
+            mForecastAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, weekFo);
             //setListAdapter(mForecastAdapter);
 
 
